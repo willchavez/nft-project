@@ -21,12 +21,14 @@ contract nft is ERC721URIStorage {
     function  makeNFT() public {
         // Get the current tokenId, this starts at 0.
         uint256 newItemId = _tokenIds.current();
-        
+
         // Actually mint the NFT to the sender using msg.sender.
         _safeMint(msg.sender, newItemId);
 
         // Set the NFTs data.
-        _setTokenURI(newItemId, "blah");
+        _setTokenURI(newItemId, "https://jsonkeeper.com/b/RUUS");
+        
+        console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
 
         // Increment the counter for when the next NFT is minted.
         _tokenIds.increment();
